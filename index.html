@@ -15,13 +15,20 @@
         "@context": "http://schema.org/",
         "@type": "Person",
         "name": "Jan Schutte",
-        "jobTitle": "Data Platform Engineer",
-        "url": "http://www.janschutte.com",
+        "jobTitle": "CTO / Co-founder",
+        "url": "http://www.janschutte.com/",
         "image": "https://images.jan.tf/sXMjA8msjQG2ekVcIZ4ou-ceBRAGBH-DhlcbIWcOQ_I/resize:fill:500:500:1/gravity:no/bG9jYWw6Ly8vbWUuanBn.jpg"
       }
     </script>
     <style>
-      @import url("https://fonts.cdnfonts.com/css/code-new-roman-2");
+      @font-face {
+        font-family: "Code New Roman";
+        font-style: normal;
+        font-weight: 400;
+        src:
+          local("Code New Roman"),
+          url("./code-new-roman.woff2") format("woff2");
+      }
 
       :root {
         --font-family: "Code New Roman", monospace;
@@ -42,6 +49,7 @@
         font-style: normal;
         font-variant-numeric: tabular-nums lining-nums;
         font-size: 16px;
+        font-display: swap;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -89,7 +97,7 @@
       <section>
         <h2>About</h2>
         <p>
-          Hi, I am Jan, CTO and Co-Founder of
+          Hi, I am Jan, Co-Founder of
           <a href="https://rejot.dev">ReJot</a>, the sync engine for your
           organizational data. Before that I worked as a Data Platform Engineer
           at <a href="https://www.adyen.com/">Adyen</a>. I studied Computer
