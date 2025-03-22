@@ -31,8 +31,14 @@
           url("./code-new-roman.woff2") format("woff2");
       }
 
+      @font-face {
+        font-family: "Courier New Adjusted";
+        letter-spacing: -0.8px;
+        src: local(Courier New);
+      }
+
       :root {
-        --font-family: "Code New Roman", monospace;
+        --font-family: "Code New Roman", "Courier New Adjusted", monospace;
         --line-height: 1.2rem;
         --border-thickness: 2px;
         --text-color: #000;
