@@ -17,7 +17,8 @@ Find me on [GitHub](https://github.com/SchutteJan), [LinkedIn](https://www.linke
 
 ## Projects
 
-- [semcheck](https://semcheck.ai/): AI tool for checking that implementation follows spec
+- [Fragno](https://fragno.dev/): Library for building full-stack TypeScript libraries
+- [Semcheck](https://semcheck.ai/): AI tool for checking that implementation follows spec
 - [ReJot Labs](https://labs.rejot.dev/): Collection of tools and experiments created by ReJot
 - [ReJot](https://rejot.dev/): Replication engine and framework for microservice communication
 - [Kroegen in Amsterdam](https://kroeg.jan.tf/): Web app to keep track of all bars you've visited in Amsterdam
