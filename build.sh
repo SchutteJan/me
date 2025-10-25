@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Markdown Docs:
+# https://pandoc.org/MANUAL.html#pandocs-markdown
+
 # Check if pandoc is installed
 if ! command -v pandoc &> /dev/null; then
     echo "Error: pandoc is not installed. Please install pandoc to continue."
