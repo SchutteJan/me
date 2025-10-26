@@ -25,6 +25,7 @@ Find me on [GitHub](https://github.com/SchutteJan), [LinkedIn](https://www.linke
 
 ## Posts
 
+- [Receipts](posts/receipt-printer.html) _(2026-07-25)_
 - [Getting organized: personal inventory management](posts/getting-organized) _(2026-07-18)_
 - [Fragno: Solving Split Brain Integrations](https://fragno.dev/blog/split-brain-stripe) _(2025-11-24)_
 - [Program for one, Please](posts/program-for-one.html) _(2025-09-15)_
