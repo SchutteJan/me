@@ -25,6 +25,7 @@ Find me on [GitHub](https://github.com/SchutteJan), [LinkedIn](https://www.linke
 
 ## Posts
 
+- [Fragno: Solving Split Brain Integrations](https://fragno.dev/blog/split-brain-stripe) _(2025-11-24)_
 - [Program for one, Please](posts/program-for-one.html) _(2025-09-15)_
 - [Semcheck: Spec-Driven Development using LLMs](https://labs.rejot.dev/blog/2025-08-22_spec-driven-development/) _(2025-08-22)_
 
