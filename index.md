@@ -7,7 +7,7 @@ schema_type: Person
 
 ## About
 
-My name is Jan and I am one of the co-founders of [ReJot](https://rejot.dev). Before that I worked as a Data Platform Engineer at [Adyen](https://www.adyen.com/). I studied Computer Science and Artificial Intelligence at the University of Amsterdam. I'm also on the board of the [Information Sciences Association for Amsterdam Alumni.](https://www.is3a.nl)
+My name is Jan and I was one of the co-founders of [ReJot](https://rejot.dev). Before that I worked as a Data Platform Engineer at [Adyen](https://www.adyen.com/). I studied Computer Science and Artificial Intelligence at the University of Amsterdam. I'm also on the board of the [Information Sciences Association for Amsterdam Alumni.](https://www.is3a.nl)
 
 I love building things, both digital and physical.
 
