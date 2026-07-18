@@ -38,6 +38,11 @@
             }
         </script>
         <style>
+            /*
+             * This CSS is derived from "the monospace web" by Oskar Wickström
+             * (https://owickstrom.github.io/the-monospace-web/), which is
+             * licensed under the MIT License.
+             */
             @font-face {
                 font-family: "Code New Roman";
                 font-style: normal;
@@ -68,6 +73,8 @@
                 --font-weight-medium: 600;
                 --font-weight-bold: 700;
 
+                --border-radius: 5px;
+
                 font-family: var(--font-family);
                 font-optical-sizing: auto;
                 font-weight: var(--font-weight-normal);
@@ -95,6 +102,7 @@
             }
 
             body {
+                box-sizing: border-box;
                 max-width: calc(min(80ch, round(down, 100%, 1ch)));
                 line-height: var(--line-height);
                 padding: var(--line-height) 2ch;
@@ -139,9 +147,33 @@
             }
             img {
                 font-style: italic;
+                border-radius: var(--border-radius);
+            }
+
+
+            pre {
+                  white-space: pre;
+                  overflow-x: auto;
+                  margin: var(--line-height) 0;
+                  overflow-y: hidden;
+                  border-radius: var(--border-radius);
+                  background: var(--background-color-alt);
+                  padding: calc(var(--line-height) / 2);;
+            }
+            
+            figure pre {
+              margin: 0;
+            }
+
+
+            figcaption {
+                text-align: center;
                 color: var(--text-color-alt);
+                font-style: italic;
+                margin-top: calc(var(--line-height) / 2);
             }
         </style>
+        <link rel="stylesheet" href="/code.css" />
     </head>
     <body>
         $if(is_home)$$else$
@@ -160,18 +192,6 @@
                 </header>
                 $body$
             </article>
-            $endif$ $if(is_home)$
-            <footer>
-                <p>
-                    <small
-                        >inspired by
-                        <a
-                            href="https://owickstrom.github.io/the-monospace-web/"
-                            >the monospace web</a
-                        ></small
-                    >
-                </p>
-            </footer>
             $endif$
         </main>
     </body>
