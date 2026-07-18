@@ -1,178 +1,196 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>
-            $if(title)$$title$$if(is_home)$$else$ - Jan Schutte$endif$$endif$
-        </title>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta
-            name="description"
-            content="$if(description)$$description$$else$$title$ - Jan Schutte$endif$"
-        />
-        <link
-            rel="canonical"
-            href="$if(canonical)$$canonical$$else$https://janschutte.com/posts/$slug$.html$endif$"
-        />
-        <link
-            rel="alternate"
-            type="application/rss+xml"
-            title="Jan Schutte"
-            href="/feed.xml"
-        />
-        <link
-            rel="icon"
-            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🙋</text></svg>"
-        />
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org/",
-                "@type": "$if(schema_type)$$schema_type$$else$BlogPosting$endif$",
-                $if(schema_type)$$if(schema_type)$"name": "$title$",$endif$$else$"headline": "$title$",
-                "author": {
-                    "@type": "Person",
-                    "name": "Jan Schutte"
-                },
-                "datePublished": "$date$",$endif$
-                "url": "$if(canonical)$$canonical$$else$https://janschutte.com/posts/$slug$.html$endif$"
-            }
-        </script>
-        <style>
-            @font-face {
-                font-family: "Code New Roman";
-                font-style: normal;
-                font-weight: 400;
-                font-display: swap;
-                src:
-                    local("Code New Roman"),
-                    url("/code-new-roman.woff2") format("woff2");
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      $if(title)$$title$$if(is_home)$$else$ - Jan Schutte$endif$$endif$
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preconnect" href="https://images.jan.tf" crossorigin />
+    <meta
+      name="description"
+      content="$if(description)$$description$$else$$title$ - Jan Schutte$endif$"
+    />
+    <link
+      rel="canonical"
+      href="$if(canonical)$$canonical$$else$https://janschutte.com/posts/$slug$.html$endif$"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Jan Schutte"
+      href="/feed.xml"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🙋</text></svg>"
+    />
+    <script type="application/ld+json">
+      {
+          "@context": "http://schema.org/",
+          "@type": "$if(schema_type)$$schema_type$$else$BlogPosting$endif$",
+          $if(schema_type)$$if(schema_type)$"name": "$title$",$endif$$else$"headline": "$title$",
+          "author": {
+              "@type": "Person",
+              "name": "Jan Schutte"
+          },
+          "datePublished": "$date$",$endif$
+          "url": "$if(canonical)$$canonical$$else$https://janschutte.com/posts/$slug$.html$endif$"
+      }
+    </script>
+    <style>
+      /*
+             * This CSS is derived from "the monospace web" by Oskar Wickström
+             * (https://owickstrom.github.io/the-monospace-web/), which is
+             * licensed under the MIT License.
+             */
+      @font-face {
+        font-family: "Code New Roman";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src:
+          local("Code New Roman"),
+          url("/code-new-roman.woff2") format("woff2");
+      }
 
-            @font-face {
-                font-family: "Courier New Adjusted";
-                font-display: swap;
-                src: local(Courier New);
-            }
+      @font-face {
+        font-family: "Courier New Adjusted";
+        font-display: swap;
+        src: local(Courier New);
+      }
 
-            :root {
-                --font-family:
-                    "Code New Roman", "Courier New Adjusted", monospace;
-                --line-height: 1.2rem;
-                --border-thickness: 2px;
-                --text-color: #000;
-                --text-color-alt: #666;
-                --background-color: #fff;
-                --background-color-alt: #eee;
+      :root {
+        --font-family: "Code New Roman", "Courier New Adjusted", monospace;
+        --line-height: 1.2rem;
+        --border-thickness: 2px;
+        --text-color: #000;
+        --text-color-alt: #666;
+        --background-color: #fff;
+        --background-color-alt: #eee;
 
-                --font-weight-normal: 500;
-                --font-weight-medium: 600;
-                --font-weight-bold: 700;
+        --font-weight-normal: 500;
+        --font-weight-medium: 600;
+        --font-weight-bold: 700;
 
-                font-family: var(--font-family);
-                font-optical-sizing: auto;
-                font-weight: var(--font-weight-normal);
-                font-style: normal;
-                font-variant-numeric: tabular-nums lining-nums;
-                font-size: 16px;
-            }
+        --border-radius: 5px;
 
-            @media (prefers-color-scheme: dark) {
-                :root {
-                    --text-color: #fff;
-                    --text-color-alt: #aaa;
-                    --background-color: #000;
-                    --background-color-alt: #111;
-                }
-            }
+        font-family: var(--font-family);
+        font-optical-sizing: auto;
+        font-weight: var(--font-weight-normal);
+        font-style: normal;
+        font-variant-numeric: tabular-nums lining-nums;
+        font-size: 16px;
+      }
 
-            html {
-                display: flex;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                background: var(--background-color);
-                color: var(--text-color);
-            }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --text-color: #fff;
+          --text-color-alt: #aaa;
+          --background-color: #000;
+          --background-color-alt: #111;
+        }
+      }
 
-            body {
-                max-width: calc(min(80ch, round(down, 100%, 1ch)));
-                line-height: var(--line-height);
-                padding: var(--line-height) 2ch;
-            }
+      html {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background: var(--background-color);
+        color: var(--text-color);
+      }
 
-            footer {
-                margin-top: 4rem;
-            }
+      body {
+        box-sizing: border-box;
+        max-width: calc(min(80ch, round(down, 100%, 1ch)));
+        line-height: var(--line-height);
+        padding: var(--line-height) 2ch;
+      }
 
-            a:link,
-            a:visited {
-                color: var(--text-color);
-            }
+      footer {
+        margin-top: 4rem;
+      }
 
-            p {
-                word-break: break-word;
-                word-wrap: break-word;
-                hyphens: auto;
-            }
+      a:link,
+      a:visited {
+        color: var(--text-color);
+      }
 
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-                line-height: calc(var(--line-height) + 0.5rem);
-            }
+      p {
+        word-break: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
 
-            .meta {
-                color: var(--text-color-alt);
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-            }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: calc(var(--line-height) + 0.5rem);
+      }
 
-            img,
-            video {
-                display: block;
-                width: 100%;
-                object-fit: contain;
-                overflow: hidden;
-            }
-            img {
-                font-style: italic;
-                color: var(--text-color-alt);
-            }
-        </style>
-    </head>
-    <body>
-        $if(is_home)$$else$
-        <nav>
-            <a href="/">← Home</a>
-        </nav>
-        $endif$
-        <main>
-            $if(is_home)$
-            <section>$body$</section>
-            $else$
-            <article>
-                <header>
-                    <h1>$title$</h1>
-                    <div class="meta">$date$</div>
-                </header>
-                $body$
-            </article>
-            $endif$ $if(is_home)$
-            <footer>
-                <p>
-                    <small
-                        >inspired by
-                        <a
-                            href="https://owickstrom.github.io/the-monospace-web/"
-                            >the monospace web</a
-                        ></small
-                    >
-                </p>
-            </footer>
-            $endif$
-        </main>
-    </body>
+      .meta {
+        color: var(--text-color-alt);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      img,
+      video {
+        display: block;
+        width: 100%;
+        object-fit: contain;
+        overflow: hidden;
+      }
+      img {
+        font-style: italic;
+        border-radius: var(--border-radius);
+      }
+
+      pre {
+        white-space: pre;
+        overflow-x: auto;
+        margin: var(--line-height) 0;
+        overflow-y: hidden;
+        border-radius: var(--border-radius);
+        background: var(--background-color-alt);
+        padding: calc(var(--line-height) / 2);
+      }
+
+      figure pre {
+        margin: 0;
+      }
+
+      figcaption {
+        text-align: center;
+        color: var(--text-color-alt);
+        font-style: italic;
+        margin-top: calc(var(--line-height) / 2);
+      }
+    </style>
+    <link rel="stylesheet" href="/code.css" />
+  </head>
+  <body>
+    $if(is_home)$$else$
+    <nav>
+      <a href="/">← Home</a>
+    </nav>
+    $endif$
+    <main>
+      $if(is_home)$
+      <section>$body$</section>
+      $else$
+      <article>
+        <header>
+          <h1>$title$</h1>
+          <div class="meta">$date$</div>
+        </header>
+        $body$
+      </article>
+      $endif$
+    </main>
+  </body>
 </html>

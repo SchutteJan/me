@@ -22,9 +22,9 @@ PRs in a table so I can quickly navigate to them. Next up was an hourly weather 
 jacket when I go out for lunch. And my least creative addition was a "quote of the day" section on top.
 
 <picture>
-    <source media="(prefers-color-scheme: light)" srcset="/posts/new-tab-light.webp">
-    <source media="(prefers-color-scheme: dark)" srcset="/posts/new-tab-dark.webp">
-    <img alt="Screenshot" src="/posts/new-tab-light.webp">
+    <source media="(prefers-color-scheme: light)" srcset="https://images.jan.tf/fgMUD670SFVWmsDeBHxQAbju2qFJoPtdtaD3ZESFXYY/el:t/g:no/rt:fit/w:800/bG9jYWw6Ly8vcG9zdHMvbmV3LXRhYi1saWdodC5wbmc">
+    <source media="(prefers-color-scheme: dark)" srcset="https://images.jan.tf/m1FZiRP-VWV3Zmy7Rl0KU5ec-BHcZgVFzS698z-lGI0/el:t/g:no/rt:fit/w:800/bG9jYWw6Ly8vcG9zdHMvbmV3LXRhYi1kYXJrLnBuZw">
+    <img alt="Screenshot" src="https://images.jan.tf/fgMUD670SFVWmsDeBHxQAbju2qFJoPtdtaD3ZESFXYY/el:t/g:no/rt:fit/w:800/bG9jYWw6Ly8vcG9zdHMvbmV3LXRhYi1saWdodC5wbmc">
 </picture>
 
 The method I found to work best is to keep the project as simple as possible. There are no build steps, linters, tests,

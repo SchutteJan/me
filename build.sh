@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Markdown Docs:
 # https://pandoc.org/MANUAL.html#pandocs-markdown
 
@@ -8,6 +10,11 @@ if ! command -v pandoc &> /dev/null; then
     echo "Error: pandoc is not installed. Please install pandoc to continue."
     exit 1
 fi
+OUTPUT_DIR="./out"
+mkdir -p "$OUTPUT_DIR"
+
+# Copy static assets to out dir
+cp static/* "$OUTPUT_DIR/"
 
 # Process index.md (home page)
 if [ -f "index.md" ]; then
@@ -15,26 +22,33 @@ if [ -f "index.md" ]; then
     pandoc "index.md" \
         --template=template.html \
         --variable=is_home:true \
-        --output="index.html"
+        --output="$OUTPUT_DIR/index.html"
     echo "Generated index.html"
 fi
 
-# Process each markdown file in posts directory
-for md_file in posts/*.md; do
-    if [ -f "$md_file" ]; then
-        echo "Processing $md_file..."
+# Process each post: flat posts/<slug>.md or folder posts/<slug>/index.md
+for md_file in posts/*.md posts/*/index.md; do
+    [ -f "$md_file" ] || continue
+    echo "Processing $md_file..."
 
-        # Extract filename without extension for slug
-        basename=$(basename "$md_file" .md)
-
-        # Convert markdown to HTML using pandoc with template
-        pandoc "$md_file" \
-            --template=template.html \
-            --variable=slug:"$basename" \
-            --output="posts/$basename.html"
-
-        echo "Generated posts/$basename.html"
+    # Folder posts use the directory name as slug and stay in the folder;
+    # flat posts use the filename.
+    if [ "$(basename "$md_file")" = "index.md" ]; then
+        slug=$(basename "$(dirname "$md_file")")
+        output="$OUTPUT_DIR/posts/$slug/index.html"
+    else
+        slug=$(basename "$md_file" .md)
+        output="$OUTPUT_DIR/posts/$slug.html"
     fi
+
+    mkdir -p $(dirname $output)
+
+    pandoc "$md_file" \
+        --template=template.html \
+        --variable=slug:"$slug" \
+        --output="$output"
+
+    echo "Generated $output"
 done
 
 # Generate RSS feed from the "## Posts" section of index.md
@@ -84,7 +98,7 @@ if [ -f "index.md" ]; then
 
         echo '  </channel>'
         echo '</rss>'
-    } > feed.xml
+    } > $OUTPUT_DIR/feed.xml
 
     echo "Generated feed.xml"
 fi
