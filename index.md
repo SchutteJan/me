@@ -11,7 +11,7 @@ My name is Jan and I was one of the co-founders of [ReJot](https://rejot.dev). B
 
 I love building things, both digital and physical.
 
-Find me on [GitHub](https://github.com/SchutteJan), [LinkedIn](https://www.linkedin.com/in/jan-schutte-183145135/), [Bluesky](https://bsky.app/profile/janschutte.com) or [X](https://x.com/Jan_Schutte).
+Find me on [GitHub](https://github.com/SchutteJan), [LinkedIn](https://www.linkedin.com/in/jan-schutte-183145135/), [Bluesky](https://bsky.app/profile/janschutte.com) and [Are.na](https://www.are.na/jan-schutte).
 
 ![My face](https://images.jan.tf/_ort1jAEbrsqFGaFbloSoXFS028M7Agffuybh15r-9g/rs:fit:512:512/plain/local:///me-2025-square.jpg){width=250 height=250 style="width:250px;margin-inline:auto;"}
 
