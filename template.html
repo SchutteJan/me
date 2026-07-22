@@ -13,7 +13,7 @@
     />
     <link
       rel="canonical"
-      href="$if(canonical)$$canonical$$else$https://janschutte.com/posts/$slug$.html$endif$"
+      href="$if(canonical)$$canonical$$else$https://janschutte.com/$permalink$$endif$"
     />
     <link
       rel="alternate"
@@ -21,6 +21,17 @@
       title="Jan Schutte"
       href="/feed.xml"
     />
+    <meta property="og:type" content="$if(schema_type)$website$else$article$endif$" />
+    <meta property="og:title" content="$title$" />
+    <meta
+      property="og:description"
+      content="$if(description)$$description$$else$$title$ - Jan Schutte$endif$"
+    />
+    <meta
+      property="og:url"
+      content="$if(canonical)$$canonical$$else$https://janschutte.com/$permalink$$endif$"
+    />
+    $if(image)$<meta property="og:image" content="$image$" />$endif$
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🙋</text></svg>"
@@ -35,7 +46,8 @@
               "name": "Jan Schutte"
           },
           "datePublished": "$date$",$endif$
-          "url": "$if(canonical)$$canonical$$else$https://janschutte.com/posts/$slug$.html$endif$"
+          $if(image)$"image": "$image$",$endif$
+          "url": "$if(canonical)$$canonical$$else$https://janschutte.com/$permalink$$endif$"
       }
     </script>
     <style>

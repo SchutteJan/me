@@ -21,6 +21,7 @@ if [ -f "index.md" ]; then
     echo "Processing index.md..."
     pandoc "index.md" \
         --template=template.html \
+        --wrap=none \
         --variable=is_home:true \
         --output="$OUTPUT_DIR/index.html"
     echo "Generated index.html"
@@ -36,16 +37,20 @@ for md_file in posts/*.md posts/*/index.md; do
     if [ "$(basename "$md_file")" = "index.md" ]; then
         slug=$(basename "$(dirname "$md_file")")
         output="$OUTPUT_DIR/posts/$slug/index.html"
+        permalink="posts/$slug"
     else
         slug=$(basename "$md_file" .md)
         output="$OUTPUT_DIR/posts/$slug.html"
+        permalink="posts/$slug.html"
     fi
 
     mkdir -p $(dirname $output)
 
     pandoc "$md_file" \
         --template=template.html \
+        --wrap=none \
         --variable=slug:"$slug" \
+        --variable=permalink:"$permalink" \
         --output="$output"
 
     echo "Generated $output"
@@ -60,7 +65,7 @@ if [ -f "index.md" ]; then
 
     {
         echo '<?xml version="1.0" encoding="UTF-8"?>'
-        echo '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">'
+        echo '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">'
         echo '  <channel>'
         echo '    <title>Jan Schutte</title>'
         echo "    <link>$BASE_URL/</link>"
@@ -76,6 +81,24 @@ if [ -f "index.md" ]; then
                 title=$(echo "$line" | sed -E 's/^\- \[(.*)\]\(.*/\1/')
                 url=$(echo "$line" | sed -E 's/^\- \[.*\]\((.*)\) _\(.*/\1/')
                 pubdate=$(echo "$line" | sed -E 's/.*_\((.*)\)_.*/\1/')
+
+                # For local posts, pull the optional `image` from the post's
+                # frontmatter so it can be attached to the feed item.
+                image=""
+                case "$url" in
+                    http*) ;;
+                    *)
+                        rel="${url%/}"
+                        if [ "$rel" != "${rel%.html}" ]; then
+                            mdfile="${rel%.html}.md"
+                        else
+                            mdfile="$rel/index.md"
+                        fi
+                        if [ -f "$mdfile" ]; then
+                            image=$(awk '/^---[[:space:]]*$/{n++; next} n==1 && /^image:/{sub(/^image:[[:space:]]*/, ""); gsub(/^["'"'"']|["'"'"']$/, ""); print; exit}' "$mdfile")
+                        fi
+                        ;;
+                esac
 
                 # Resolve relative URLs against the base URL
                 case "$url" in
@@ -93,6 +116,7 @@ if [ -f "index.md" ]; then
                 echo "      <link>$url</link>"
                 echo "      <guid isPermaLink=\"true\">$url</guid>"
                 echo "      <pubDate>$rfc_date</pubDate>"
+                [ -n "$image" ] && echo "      <media:content url=\"$image\" medium=\"image\" />"
                 echo '    </item>'
             done
 

@@ -1,6 +1,8 @@
 ---
 date: 2026-07-18
 title: "Getting organized: personal inventory management"
+description: "Tracking my hoard of electrical components with Thalo, a plain-text knowledge base, and a small static site."
+image: "https://images.jan.tf/e6v9FyEbAvpv2z0nIpDSPa14UUs2h_cdb_2BsVx8nTo/el:t/g:no/rt:fit/w:1200/bG9jYWw6Ly8vcG9zdHMvZ2V0dGluZy1vcmdhbml6ZWQvYm94ZXMtd2lkZS5qcGc"
 ---
 
 <img alt="various colored assortment boxes laid out on my workbench"
