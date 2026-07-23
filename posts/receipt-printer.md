@@ -3,8 +3,21 @@ date: 2025-10-25
 title: Receipt Demo
 ---
 
-
 Receipts have a particular style. And since I use a monospace font on this website I can recreate one using box drawing characters.
+
+Font matched one:
+
+<figure>
+``` {#preview}
+≡≡ Booted ≡≡
+Connected to Buurman en Buurman
+```
+<figcaption>
+example
+</figcaption>
+</figure>
+
+
 
 <figure>
 ``` {#receipt-example}
@@ -84,7 +97,7 @@ Receipts have a particular style. And since I use a monospace font on this websi
 ┃   Change:                ¥50 ┃
 ┃                              ┃
 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-┃  ★ High Score:  125,400 ★    ┃
+┃    High Score:  125,400      ┃
 ┃  Player: YUKI - Game: PAC    ┃
 ┃                              ┃
 ┃  Order #: A-1042             ┃
@@ -149,9 +162,26 @@ const prefersReducedMotion = window.matchMedia(
 ).matches;
 
 if (!prefersReducedMotion) {
+  startPrintAnimation("preview");
   startPrintAnimation("receipt-example");
   setTimeout(() => {
     startPrintAnimation("receipt-arcade");
   }, 100)
 }
 </script>
+
+<style>
+@font-face {
+  font-family: "GNU Thermal Sans Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("GNU Thermal Sans Mono"),
+    url("/thermal-sans-mono-24.ttf") format("opentype");
+}
+
+#preview {
+    font-family: "GNU Thermal Sans Mono";
+}
+</style>
