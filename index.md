@@ -23,7 +23,7 @@ Find me on [GitHub](https://github.com/SchutteJan), [LinkedIn](https://www.linke
 - [ReJot Sync](https://sync.rejot.dev/): Replication engine and framework for microservice communication
 - [Kroegen in Amsterdam](https://kroeg.jan.tf/): Web app to keep track of all bars you've visited in Amsterdam
 
-## Posts
+## Posts <a href="/feed.xml" class="rss-link" title="RSS feed" aria-label="RSS feed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="rss-icon" aria-hidden="true"><path d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"></path></svg></a> {#posts}
 
 - [Getting organized: personal inventory management](posts/getting-organized) _(2026-07-18)_
 - [Fragno: Solving Split Brain Integrations](https://fragno.dev/blog/split-brain-stripe) _(2025-11-24)_
